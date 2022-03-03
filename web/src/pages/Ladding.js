@@ -1,15 +1,12 @@
 import React from 'react';
 import Wrapper from '../assets/wrappes/LaddingPage';
-
-import logo from '../assets/images/logo.svg';
-import main from '../assets/images/main.svg';
+import { Logo } from '../components/index';
+import main from '../assets/images/main-alternative.svg';
 
 export const Ladding = () => {
   return (
     <Wrapper>
-        <nav>
-            <img src={logo} alt='logo' className='logo'/>
-        </nav>
+        <Logo/>
         <div className='container page'>
             <div className='info'>
                 <h1>
