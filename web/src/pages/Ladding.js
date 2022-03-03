@@ -1,11 +1,12 @@
 import React from 'react';
+import Wrapper from '../assets/wrappes/LaddingPage';
 
 import logo from '../assets/images/logo.svg';
 import main from '../assets/images/main.svg';
 
 export const Ladding = () => {
   return (
-    <main>
+    <Wrapper>
         <nav>
             <img src={logo} alt='logo' className='logo'/>
         </nav>
@@ -23,7 +24,7 @@ export const Ladding = () => {
             </div>
             <img src={main} alt='job hunt' className='img main-img'/>
         </div>
-    </main>
+    </Wrapper>
   )
 }
 
