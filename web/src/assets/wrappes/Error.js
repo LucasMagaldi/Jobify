@@ -22,6 +22,11 @@ const WrapperError = styled.main `
         text-transform:none;
     }
 
+    .btnPosition {
+        margin-left: 45%;
+        //width: 200px;
+    }
+
   @media (max-width: 950px) {
     .notFound {
         width: 400px;
