@@ -1,4 +1,4 @@
-import Ladding from './pages/Ladding';
+import { Ladding, Register, Error } from './pages/index';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 function App() {
@@ -8,7 +8,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Ladding/>}/>
         <Route path='/ladding' element={<Ladding/>}/>
-        <Route path='*' element={<h1>Error </h1>}/>
+        <Route path='/register' element={<h1>Register </h1>}/>
+        <Route path='*' element={<Error/>}/>
       </Routes>
     </BrowserRouter>  
   );
