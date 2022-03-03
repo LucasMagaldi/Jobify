@@ -128,11 +128,7 @@ ul {
   padding: 0;
 }
 
-.teste {
-  width: 200px;
-  max-width: 200px;
-  align-items: center;
-}
+
 
 .container {
   width: var(--fluid-width);

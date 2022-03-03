@@ -1,12 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-import notFound from '../assets/images/not-found.svg'
+import WrapperError from '../assets/wrappes/Error';
+import notFound from '../assets/images/not-found.svg';
 
 export const Error = () => {
   return (
-    <div className='container page'>
-        <img src={notFound} className='teste' />
-    </div>
+    <WrapperError>
+        <div className='containerError'>
+          <img src={notFound} className='notFound' />
+        </div>
+        <h4 className='NotFoundMessage'>Sorry, we are not able to find this page</h4>
+    </WrapperError>
   )
 }
 
