@@ -11,6 +11,14 @@ const WrapperRegister = styled.section`
     .logoRegister {
         text-align: center ;
     }
+
+    .memberBtn {
+        background:transparent;
+        border: transparent;
+        cursor:pointer;
+        color: var(--primary-500);
+        font-size: 15px ;
+    }
 `
 
 

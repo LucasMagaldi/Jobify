@@ -7,7 +7,7 @@ const initialState = {
   email: '',
   password: '',
   isMember: false,
-  showAlert: true
+  showAlert: false
 }
 
 export const Register = () => {
@@ -62,15 +62,28 @@ export const Register = () => {
           handleChange = {handleChange}
           labelText='password'
         />
+
        
         <button type='submit'className='btn btn-block' >
-          Sign In
+          {values.isMember ? 'Sign In' : 'Sign Up'}
         </button>
-        <p>
-          <button type='button' onClick={toggleMember}>
-              {values.isMember ? 'Register' : 'Login'}
-          </button>
-        </p>
+        
+        {
+          values.isMember ?
+            /*   */
+            <p> Don't have account?
+              <button type='button' onClick={toggleMember}>
+                  Register
+              </button>
+            </p>
+            :
+            <p> Already have account? 
+                <button type='button' onClick={toggleMember} className='memberBtn'>
+                  Login
+               </button>
+            </p>
+        }
+
       </form>
     </WrapperRegister>
   )
