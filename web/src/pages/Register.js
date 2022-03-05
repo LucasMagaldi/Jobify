@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useAppContext } from '../context/appContext';
 import { Logo, FormRow, Alert } from '../components';
 import WrapperRegister from '../assets/wrappes/RegisterPage';
 
@@ -13,6 +14,9 @@ const initialState = {
 export const Register = () => {
 
   const [values, setValues] = useState(initialState);
+
+  const state = useAppContext();
+  console.log(state)
 
   const handleChange = (e) => {
     console.log(e.target);
@@ -72,7 +76,7 @@ export const Register = () => {
           values.isMember ?
             /*   */
             <p> Don't have account?
-              <button type='button' onClick={toggleMember}>
+              <button type='button' onClick={toggleMember} className='memberBtn'>
                   Register
               </button>
             </p>
