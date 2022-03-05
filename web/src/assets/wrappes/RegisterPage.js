@@ -7,6 +7,10 @@ const WrapperRegister = styled.section`
     h3 {
         text-align: center;
     }
+
+    .logoRegister {
+        text-align: center ;
+    }
 `
 
 
