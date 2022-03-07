@@ -7,20 +7,21 @@ const initialState = {
   name: '',
   email: '',
   password: '',
-  isMember: false,
-  showAlert: false
+  isMember: false
 }
 
 export const Register = () => {
 
   const [values, setValues] = useState(initialState);
 
-  const state = useAppContext();
-  console.log(state)
+  const { isLoading, showAlert } = useAppContext();
+  
 
   const handleChange = (e) => {
-    console.log(e.target);
+    console.log(e.target.value);
   }
+
+  
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +39,7 @@ export const Register = () => {
       <form onSubmit={onSubmit} className='form'>
         <Logo/>
         <h5>{values.isMember ? 'Login' : 'Register'}</h5>
-        {values.showAlert && <Alert/> }
+        {showAlert && <Alert/> }
 
         {
         !values.isMember && <FormRow
