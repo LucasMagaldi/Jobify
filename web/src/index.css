@@ -221,6 +221,19 @@ ul {
   box-shadow: var(--shadow-4);
 }
 
+.alert {
+  padding: 0.375rem 0.75rem;
+  margin-bottom: 1rem;
+  border-color: transparent;
+  text-align: center;
+  letter-spacing: var(--letterSpacing);
+}
+
+.alert-danger {
+  color: var(--red-dark);
+  background: var(--red-light);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

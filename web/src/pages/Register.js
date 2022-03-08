@@ -14,18 +14,27 @@ export const Register = () => {
 
   const [values, setValues] = useState(initialState);
 
-  const { isLoading, showAlert } = useAppContext();
-  
+  const { isLoading, showAlert, displayAlert } = useAppContext();
+  const value = values;
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    setValues({...values, [e.target.name]: e.target.value}); // To beginers it's very important
+    const x = values                                         // How we set the values
+    console.log(x);
   }
 
   
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target)
+    const { name, email, password, isMember } = values;
+
+    if(!email || !password || (!isMember && !name)) {
+      displayAlert()
+      return
+    }
+
+    console.log("Pass")
   }
 
   const toggleMember = () => {
