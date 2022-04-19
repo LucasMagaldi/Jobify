@@ -1,4 +1,5 @@
 import { Router } from "express";
+import ErrorHandler from "./Middleware/ErrorHandler.js";
 import NotFound from "./Middleware/NotFound.js";
 
 
@@ -14,6 +15,7 @@ class Routes  {
         });
 
         this.routes.use(NotFound);
+        this.routes.use(ErrorHandler)
     }
 }
 
