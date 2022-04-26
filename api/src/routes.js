@@ -16,7 +16,7 @@ class Routes  {
             return res.status(200).json({number:10000})
         });
         // Auth Routes
-        this.routes.get('/auth/register', authController.Register);
+        this.routes.post('/auth/register', authController.Register);
         // Job Routes
         this.routes.post('/jobs/create', jobController.CreateJob);
         this.routes.put('/jobs/:id', jobController.UpdateJob);

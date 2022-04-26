@@ -1,9 +1,17 @@
-
+import User from '../Models/User.js'
 
 class AuthController {
 
     async Register(req,res) {
-        return res.status(200).json({msg: "Register"})
+        try {
+            console.log(req.body);
+            const user = await User.create(req.body);
+            console.log(user)
+            return res.status(200).json({user: user})
+        } catch (error) {
+            return res.status(500).json({msg: "Register fail"})
+        }
+        
     }
 
     async Login(req,res) {
