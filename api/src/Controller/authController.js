@@ -2,14 +2,17 @@ import User from '../Models/User.js'
 
 class AuthController {
 
-    async Register(req,res) {
+    async Register(req,res, next) {
         try {
-            console.log(req.body);
-            const user = await User.create(req.body);
+            //console.log(req.body);
+            const { name, email, password } = req.body;
+            const user = await User.create({name, email, password});
             console.log(user)
             return res.status(200).json({user: user})
         } catch (error) {
-            return res.status(500).json({msg: "Register fail"})
+           // console.log(error);
+            next(error)
+            //return res.status(500).json({msg: "Register fail"})
         }
         
     }
