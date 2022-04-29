@@ -10,9 +10,14 @@ class AuthController {
                 return res.status(400).json({msg: "Please provide all values"});
             }
 
+            const emailAlreadyExist = await User.findOne({email});
+            if(emailAlreadyExist) {
+                return res.status(401).json({msg: "Email address already used"})
+            }
+
             const user = await User.create({name, email, password});
             console.log(user)
-            return res.status(200).json({user: user})
+            return res.status(200).json({user: user});
         } catch (error) {
            // console.log(error);
             next(error)
