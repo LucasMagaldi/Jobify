@@ -19,5 +19,6 @@ export default async function(error, req,res, next) {
         err.msg = `${Object.keys(error.keyValue)} field has to be unique`;
         return res.status(err.statusCode).json({msg: err.msg});
     }
+     console.log(`MENSAGE: ${error}`)
      return res.status(err.statusCode).json({msg: error})
 }

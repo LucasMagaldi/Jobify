@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
 import validator from 'validator'
 
 const UserSchema = new mongoose.Schema({
@@ -28,6 +27,7 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, 'Please provide PW'],
+        select: true
         //unique: true
     },
     location: {
@@ -38,9 +38,10 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
-UserSchema.pre('save', async () => {
+/*UserSchema.pre('save', async () => {
+    console.log(this)
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
-});
+});*/
 
 export default mongoose.model('User', UserSchema);

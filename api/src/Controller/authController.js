@@ -1,4 +1,5 @@
 import User from '../Models/User.js'
+import bcrypt from 'bcryptjs';
 
 class AuthController {
 
@@ -15,7 +16,10 @@ class AuthController {
                 return res.status(401).json({msg: "Email address already used"})
             }
 
-            const user = await User.create({name, email, password});
+            const salt = await bcrypt.genSalt(10);
+            const hash = await bcrypt.hash(password, salt);
+
+            const user = await User.create({name, email, password: hash});
             console.log(user)
             return res.status(200).json({user: user});
         } catch (error) {
