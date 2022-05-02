@@ -38,6 +38,10 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
+UserSchema.methods.createJWT = () => {
+    console.log(this)
+}
+
 /*UserSchema.pre('save', async () => {
     console.log(this)
     const salt = await bcrypt.genSalt(10);

@@ -21,6 +21,7 @@ class AuthController {
 
             const user = await User.create({name, email, password: hash});
             console.log(user)
+            User.createJWT()
             return res.status(200).json({user: user});
         } catch (error) {
            // console.log(error);
