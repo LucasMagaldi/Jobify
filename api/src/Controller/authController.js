@@ -1,5 +1,9 @@
 import User from '../Models/User.js'
-import bcrypt from 'bcryptjs';
+import dotenv from 'dotenv';
+import authService from '../Service/authService.js';
+import jwt from 'jsonwebtoken';
+
+dotenv.config();
 
 class AuthController {
 
@@ -11,18 +15,23 @@ class AuthController {
                 return res.status(400).json({msg: "Please provide all values"});
             }
 
-            const emailAlreadyExist = await User.findOne({email});
+            const emailAlreadyExist = await authService.findByEmail(email)
+            //const emailAlreadyExist = await User.findOne({email});
+           // console.log(emailAlreadyExist._id)
             if(emailAlreadyExist) {
                 return res.status(401).json({msg: "Email address already used"})
             }
 
-            const salt = await bcrypt.genSalt(10);
-            const hash = await bcrypt.hash(password, salt);
-
-            const user = await User.create({name, email, password: hash});
-            console.log(user)
-            User.createJWT()
-            return res.status(200).json({user: user});
+            const user = await authService.register(name, email, password);
+        
+            return res.status(200).json({
+                status: true,
+                token: jwt.sign(
+                    {id: user._id, location: user.location, name: user.name },
+                    process.env.JWT_SECRET,
+                    {expiresIn: "1h"}
+                )
+            });
         } catch (error) {
            // console.log(error);
             next(error)
