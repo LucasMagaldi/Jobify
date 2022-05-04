@@ -12,7 +12,7 @@ class Routes  {
     }
 
     ApplicationRoutes() {
-        this.routes.get('/', (req,res)=> {  
+        this.routes.get('/test', (req,res)=> {  
             return res.status(200).json({number:10000})
         });
         // Auth Routes

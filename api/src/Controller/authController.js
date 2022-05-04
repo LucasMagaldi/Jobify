@@ -26,6 +26,12 @@ class AuthController {
         
             return res.status(200).json({
                 status: true,
+                user: {
+                    email: user.email,
+                    lastName: user.lastName,
+                    location: user.location,
+                    name: user.name
+                },
                 token: jwt.sign(
                     {id: user._id, location: user.location, name: user.name },
                     process.env.JWT_SECRET,

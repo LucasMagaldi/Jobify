@@ -1,11 +1,29 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import api from '../services/api';
 import Wrapper from '../assets/wrappes/LaddingPage';
 import { Logo } from '../components/index';
 import main from '../assets/images/main-alternative.svg';
 
 export const Ladding = () => {
+
+    useEffect(() => {
+        fetchData();
+        console.log(1000)
+    }, []);
+
+    const fetchData = async () => {
+        try {
+            const response  = await fetch(`${api}/test`);
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
   return (
     <Wrapper>
         <Logo/>
