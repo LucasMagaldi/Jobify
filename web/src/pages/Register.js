@@ -14,7 +14,7 @@ export const Register = () => {
 
   const [values, setValues] = useState(initialState);
 
-  const { isLoading, showAlert, displayAlert } = useAppContext();
+  const { isLoading, showAlert, displayAlert, registerUser } = useAppContext();
   const value = values;
 
   const handleChange = (e) => {
