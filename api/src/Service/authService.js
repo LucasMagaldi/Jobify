@@ -25,6 +25,7 @@ class authService {
     async findByEmail(email) {
         try {
             const emailAlreadyExist = await User.findOne({email});
+            console.log(`Here: ${emailAlreadyExist}`)
             return emailAlreadyExist;
         } catch (error) {
             return error

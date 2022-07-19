@@ -34,7 +34,14 @@ export const Register = () => {
       return
     }
 
-    console.log("Pass")
+    const currentUser = { name, email, password};
+
+    if(isMember) {
+      console.log("Already a member")
+    }
+
+    registerUser(currentUser)
+    console.log(values)
   }
 
   const toggleMember = () => {

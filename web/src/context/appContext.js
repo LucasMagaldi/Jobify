@@ -1,4 +1,7 @@
+import axios from "axios";
 import React, { useState, useReducer, useContext } from "react";
+import mainApi from "../services/axiosApi";
+
 import { DISPLAY_ALERT, CLEAR_ALERT,
      REGISTER_USER_BEGIN, REGISTER_USER_SUCCESS, 
      REGISTER_USER_ERROR  } 
@@ -14,6 +17,7 @@ const initialState = {
     user: null,
     token: null,
     userLocation: '',
+    jobLocation: ''
 }
 
 const AppContext = React.createContext();
@@ -35,7 +39,19 @@ const AppProvider = ({children}) => {
 
 
      const registerUser = async(currentUser) => {
-        console.log(currentUser)
+         dispatch({type: REGISTER_USER_BEGIN});
+         try {
+            console.log(currentUser);
+            //const response = await mainApi.post('/auth/register', currentUser);
+            console.log("Register")
+            //console.log(response);
+           // const { user, token , location } = response.data;
+            dispatch({
+
+            })
+         } catch (error) {
+             
+         }
      }
 
     return (
